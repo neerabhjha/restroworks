@@ -38,7 +38,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
       </div>
       <div className="min-h-[80vh] select-none">
         {media && typeof media === 'object' && (
-          <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
+          <Media src={("https://res.cloudinary.com/dqb6ltkmy/image/upload/v1755838370/restroworks/cutlery-near-twig-leaves_wycwpx.jpg") as any} fill imgClassName="-z-10 object-cover" priority resource={media} />
         )}
       </div>
     </div>
