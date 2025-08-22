@@ -58,7 +58,7 @@ TestimonialBlockType & { disableInnerContainer?: boolean }
             className="text-xl md:text-2xl italic text-gray-100 leading-relaxed relative z-10"
             variants={itemVariants}
           >
-            "{quote}"
+            &quot;{quote}&quot;
           </motion.blockquote>
           <motion.div 
             className="mt-6 flex items-center gap-4 pt-4 border-t border-gray-700/50"

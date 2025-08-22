@@ -33,7 +33,7 @@ export const Textarea: React.FC<
           rows={rows}
           {...register(name, { required: required })}
           className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-gray-100 placeholder-gray-400 focus:border-amber-400/50 focus:ring-2 focus:ring-amber-400/20 focus:outline-none transition-all duration-300 hover:border-gray-500/50 resize-none"
-          placeholder={`Enter your ${label.toLowerCase()}`}
+          placeholder={`Enter your ${label?.toLowerCase()}`}
         />
 
         {errors[name] && <Error name={name} />}
