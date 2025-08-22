@@ -41,17 +41,23 @@ type Args = {
   params: Promise<{
     slug?: string
   }>
+  searchParams?: Promise<{
+    locale?: 'en' | 'hi'
+  }>
 }
 
-export default async function Page({ params: paramsPromise }: Args) {
+export default async function Page({ params: paramsPromise, searchParams }: Args) {
   const { isEnabled: draft } = await draftMode()
   const { slug = 'home' } = await paramsPromise
+  const resolvedSearch = (await searchParams) || {}
+  const locale = resolvedSearch.locale || 'en'
   const url = '/' + slug
 
   let page: RequiredDataFromCollectionSlug<'pages'> | null
 
   page = await queryPageBySlug({
     slug,
+    locale,
   })
 
   // Remove this code once your website is seeded
@@ -79,16 +85,19 @@ export default async function Page({ params: paramsPromise }: Args) {
   )
 }
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise, searchParams }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
+  const resolvedSearch = (await searchParams) || {}
+  const locale = resolvedSearch.locale || 'en'
   const page = await queryPageBySlug({
     slug,
+    locale,
   })
 
   return generateMeta({ doc: page })
 }
 
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: 'en' | 'hi' }) => {
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -99,6 +108,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     limit: 1,
     pagination: false,
     overrideAccess: draft,
+    locale,
     where: {
       slug: {
         equals: slug,

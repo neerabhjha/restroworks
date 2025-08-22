@@ -91,7 +91,7 @@ export const seed = async ({
       'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post3.webp',
     ),
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-hero1.webp',
+      'https://res.cloudinary.com/dqb6ltkmy/image/upload/v1755838370/restroworks/cutlery-near-twig-leaves_wycwpx.jpg',
     ),
   ])
 

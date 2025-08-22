@@ -57,6 +57,14 @@ export default buildConfig({
       ],
     },
   },
+  localization: {
+    locales: [
+      { code: 'en', label: 'English' },
+      { code: 'hi', label: 'Hindi' },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: mongooseAdapter({

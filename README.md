@@ -316,6 +316,20 @@ Before deploying your app, you need to:
 
 You can also deploy your app manually, check out the [deployment documentation](https://payloadcms.com/docs/production/deployment) for full details.
 
+## Internationalization (i18n)
+
+- Locales enabled: `en`, `es` (Payload localization).
+- Localized fields: hero.richText, CTA.richText, Content.richText, Feature.title/description, Testimonial.quote/author fields.
+- Use the header language switcher to toggle `?locale=` which drives SSR queries.
+
+## Contact Form
+
+- Contact page is seeded. Submissions post to `/api/form-submissions` and are stored by Payload Form Builder.
+
+## SEO & Sitemaps
+
+- SEO via `@payloadcms/plugin-seo`, sitemaps and robots via `next-sitemap.config.cjs`.
+
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
